@@ -14,6 +14,12 @@ module.exports = (env = 'production') => {
       name: 'MainProcess',
       sourcemap: false,
     },
+    //屏蔽循环依赖警告，强迫症
+    onwarn: warning => {
+      if (warning.code !== 'CIRCULAR_DEPENDENCY') {
+        console.error(`(!) ${warning.message}`);
+      }
+    },
     plugins: [
       nodeResolve({ jsnext: true, preferBuiltins: true, browser: true }), // 消除碰到 node.js 模块时⚠警告
       commonjs({
@@ -61,7 +67,6 @@ module.exports = (env = 'production') => {
       'path',
       'electron',
       'electron-updater',
-      'electron-devtools-installer',
       'express',
       'ffi-napi',
       'ref-napi',
