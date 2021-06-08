@@ -1,0 +1,37 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "outDir": "./dist/electron/main",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "paths": {
+      "@config/*": [
+        "config/*"
+      ],
+      "@renderer/*": [
+        "src/renderer/*"
+      ],
+      "@main/*": [
+        "src/main/*"
+      ]
+    },
+    "lib": [
+      "es2018",
+      "dom"
+    ]
+  },
+  "include": [
+    "src/**/*",
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+}
