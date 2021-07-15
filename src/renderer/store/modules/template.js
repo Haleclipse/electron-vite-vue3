@@ -1,14 +1,15 @@
 const template = {
     state: {
-        testData: ""
+        testData: localStorage.getItem("testData") || ""
     },
     mutations: {
         TEST_COMMIT: (state, data) => {
             state.testData = data
+            localStorage.setItem("testData", data)
         }
     },
     actions: {
-        TEST_ACTION(commit, data) {
+        TEST_ACTION({ commit }, data) {
             commit("TEST_COMMIT", data)
         }
     }

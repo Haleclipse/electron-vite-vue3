@@ -12,18 +12,18 @@ module.exports = (env = 'production') => {
       file: path.join(__dirname, '../dist/electron/main/main.js'),
       format: 'cjs',
       name: 'MainProcess',
-      sourcemap: false,
+      sourcemap: true,
     },
     //屏蔽循环依赖警告，强迫症
-    onwarn: warning => {
-      if (warning.code !== 'CIRCULAR_DEPENDENCY') {
-        console.error(`(!) ${warning.message}`);
-      }
-    },
+    // onwarn: warning => {
+    //   if (warning.code !== 'CIRCULAR_DEPENDENCY') {
+    //     console.error(`(!) ${warning.message}`);
+    //   }
+    // },
     plugins: [
       nodeResolve({ jsnext: true, preferBuiltins: true, browser: true }), // 消除碰到 node.js 模块时⚠警告
       commonjs({
-        sourceMap: false,
+        sourceMap: true,
       }),
       json(),
       esbuild({
@@ -31,7 +31,7 @@ module.exports = (env = 'production') => {
         include: /\.[jt]sx?$/, // default, inferred from `loaders` option
         exclude: /node_modules/, // default
         // watch: process.argv.includes('--watch'), // rollup 中有配置
-        sourceMap: false, // default
+        sourceMap: true, // default
         minify: process.env.NODE_ENV === 'production',
         target: 'es2017', // default, or 'es20XX', 'esnext'
         // Like @rollup/plugin-replace
@@ -62,11 +62,11 @@ module.exports = (env = 'production') => {
       'os',
       'events',
       'child_process',
+      'glob',
       'http',
       'https',
       'path',
       'electron',
-      'electron-updater',
       'express',
       'ffi-napi',
       'ref-napi',
