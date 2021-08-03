@@ -15,7 +15,8 @@ const config = defineConfig({
     root,
     define: {
         'process.env': process.env.NODE_ENV === 'production' ? userConfig.build.env : userConfig.dev.env,
-        'process.env.IS_WEB': IsWeb
+        'process.env.IS_WEB': IsWeb,
+        'process.env.PORT': userConfig.dev.port
     },
     resolve: {
         alias: {
@@ -39,7 +40,6 @@ const config = defineConfig({
         })
     ],
     optimizeDeps: {
-      exclude: ['pg-hstore']
     },
     publicDir: resolve('static')
 })
