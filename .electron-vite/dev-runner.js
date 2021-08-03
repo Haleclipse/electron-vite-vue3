@@ -166,8 +166,8 @@ function greeting() {
 
     if (text) {
         say(text, {
-            colors: ['yellow'],
-            font: 'simple3d',
+            font: 'simple',
+            gradient: ['red', "#f80"],
             space: false
         })
     } else console.log(chalk.yellow.bold('\n  electron-vite'))
