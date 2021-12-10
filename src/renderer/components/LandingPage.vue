@@ -88,24 +88,24 @@
   import { onUnmounted } from "vue";
   import { useStore } from "vuex"
 
-  ref: text = "等待数据读取";
-  ref: newdata = {
+  let text = $ref("等待数据读取");
+  let newdata = $ref({
     name: "yyy",
     age: "12",
-  };
-  ref: textarray = [];
-  ref: percentage = 0;
-  ref: colors = [
+  });
+  let textarray = $ref([]);
+  let percentage = $ref(0);
+  let colors = $ref([
     { color: "#f56c6c", percentage: 20 },
     { color: "#e6a23c", percentage: 40 },
     { color: "#6f7ad3", percentage: 60 },
     { color: "#1989fa", percentage: 80 },
     { color: "#5cb87a", percentage: 100 },
-  ];
-  ref: dialogVisible = false;
-  ref: progressStaus = null;
-  ref: filePath = "";
-  ref: updateStatus = "";
+  ]);
+  let dialogVisible = $ref(false);
+  let progressStaus = $ref(null);
+  let filePath = $ref("");
+  let updateStatus = $ref("");
 
   const store = useStore();
   store.dispatch("TEST_ACTION", "123456");

@@ -15,7 +15,7 @@ const { platform, release, arch } = require("os");
 import { useRoute } from "vue-router";
 
 const { path, name } = useRoute();
-ref: tips = [
+let tips = $ref([
 	{ name: "当前页面路径：", value: path },
 	{ name: "当前页面名称：", value: name },
 	{
@@ -33,7 +33,7 @@ ref: tips = [
 	{ name: "系统平台：", value: platform() },
 	{ name: "系统版本：", value: release() },
 	{ name: "系统位数：", value: arch() + "位" },
-]
+]);
 </script>
 
 <style scoped lang="scss">
